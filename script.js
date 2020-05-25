@@ -81,3 +81,15 @@ for (let count = 0; count < cards.length; count++) {
 }
 
 // Functionality #7
+
+let rightArrow = document.getElementsByClassName("btn btn-secondary my-2")[0]
+console.log(rightArrow)
+
+function shiftRight() {
+  album = document.getElementsByClassName("col-md-4")[0].parentNode
+  let first_card = document.getElementsByClassName("col-md-4")[0]
+  let last_card = document.getElementsByClassName("col-md-4")[5]
+  album.insertBefore(last_card, first_card);
+}
+
+rightArrow.addEventListener("click", shiftRight);
