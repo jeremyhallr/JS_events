@@ -3,7 +3,7 @@
 let footer= document.getElementsByTagName('footer');
 let count = 0
 
-let onFooterClick = function() {
+function onFooterClick() {
   count += 1
   console.log("clic numéro " + count);
 }
@@ -15,12 +15,8 @@ footer[0].addEventListener("click", onFooterClick);
 let navbarHeader = document.getElementById("navbarHeader");
 let navbarIcon = document.getElementsByClassName("navbar-toggler-icon");
 
-let menuCollapse = function() {
-  if (navbarHeader.className.includes("collapse")) {
-    navbarHeader.className = "bg-dark";
-  } else {
-    navbarHeader.className = "collapse bg-dark";
-  }
+function menuCollapse() {
+  navbarHeader.classList.toggle("collapse");
 }
 
 navbarIcon[0].addEventListener("click", menuCollapse);
@@ -30,8 +26,8 @@ navbarIcon[0].addEventListener("click", menuCollapse);
 let cardBodyOne = document.getElementsByClassName("card-body")[0];
 let editCardNumberOne = cardBodyOne.getElementsByTagName("button")[1];
 
-let cardRedText = function() {
-  cardBodyOne.className = "card-body text-danger";
+function cardRedText() {
+  cardBodyOne.style.color = "red";
 }
 
 editCardNumberOne.addEventListener("click", cardRedText);
@@ -41,11 +37,11 @@ editCardNumberOne.addEventListener("click", cardRedText);
 let cardBodyTwo = document.getElementsByClassName("card-body")[1];
 let editCardNumberTwo = cardBodyTwo.getElementsByTagName("button")[1];
 
-let cardGreenText = function() {
-  if (cardBodyTwo.className.includes("text-success")) {
-    cardBodyTwo.className = "card-body";
+function cardGreenText() {
+  if (cardBodyTwo.style.color == "green") {
+    cardBodyTwo.style.color = "";
   } else {
-    cardBodyTwo.className = "card-body text-success";
+    cardBodyTwo.style.color = "green";
   }
 }
 
@@ -56,7 +52,7 @@ editCardNumberTwo.addEventListener("click", cardGreenText);
 let navbar = document.getElementsByClassName("navbar")[0]
 let bootstrapLink = document.getElementsByTagName("link")[0]
 
-let modifyBootstrapLink = function () {
+function modifyBootstrapLink() {
   if (bootstrapLink.href === "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css") {
     bootstrapLink.href = "";
   } else {
@@ -65,3 +61,23 @@ let modifyBootstrapLink = function () {
 }
 
 navbar.addEventListener("dblclick", modifyBootstrapLink)
+
+// Functionality #6
+
+let viewCards = document.getElementsByClassName("btn btn-sm btn-success");
+console.log(viewCards[5]);
+let cards = document.getElementsByClassName("card");
+
+function changeCardSize() {
+  if (cards[count].style.width == "20%") {
+    cards[count].style.width = "100%";
+  } else {
+    cards[count].style.width = "20%";
+  }
+}
+
+for (let count = 0; count < cards.length; count++) {
+  viewCards[count].addEventListener("mousemove", changeCardSize);
+}
+
+// Functionality #7
