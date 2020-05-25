@@ -65,7 +65,6 @@ navbar.addEventListener("dblclick", modifyBootstrapLink)
 // Functionality #6
 
 let viewCards = document.getElementsByClassName("btn btn-sm btn-success");
-console.log(viewCards[5]);
 let cards = document.getElementsByClassName("card");
 
 function changeCardSize() {
@@ -83,7 +82,6 @@ for (let count = 0; count < cards.length; count++) {
 // Functionality #7
 
 let rightArrow = document.getElementsByClassName("btn btn-secondary my-2")[0]
-console.log(rightArrow)
 
 function shiftRight() {
   album = document.getElementsByClassName("col-md-4")[0].parentNode
